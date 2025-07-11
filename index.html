@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun Weight Bridge Trichy - Contact Info</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e0f7fa, #fff3e0);
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00796b;
+    }
+    .section {
+      background: #ffffff;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+    .contact-info p {
+      margin: 10px 0;
+    }
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .images img {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .images img:hover {
+      transform: scale(1.05);
+    }
+    .about {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 data-aos="fade-down">Sun Weight Bridge - Trichy</h1>
+
+    <div class="section contact-info" data-aos="fade-up">
+      <p><strong>Address:</strong> NH Service Road, Near Industrial Estate, Trichy, Tamil Nadu, India</p>
+      <p><strong>Phone:</strong> +91-9876543210</p>
+      <p><strong>Email:</strong> contact@sunweightbridge.com</p>
+      <p><strong>Working Hours:</strong> Mon - Sat: 8:00 AM - 8:00 PM</p>
+      <p><strong>Services:</strong> Public Weighing, Industrial Vehicle Weighing, Digital Printouts, Real-time Data Logging, Remote Ticketing</p>
+    </div>
+
+    <div class="section about" data-aos="fade-up">
+      <h2>About Us</h2>
+      <p>Sun Weight Bridge has been a trusted provider of accurate, digital weighing services for over a decade. Located strategically in Trichy, we cater to both small and large-scale clients, ensuring hassle-free and certified weight measurement with cutting-edge electronic weighbridge systems.</p>
+    </div>
+
+    <div class="section" data-aos="zoom-in">
+      <div id="map"></div>
+    </div>
+
+    <div class="section" data-aos="fade-up">
+      <h2>Gallery</h2>
+      <div class="images">
+        <img src="https://images.unsplash.com/photo-1613689911344-b60cc9c60ba9?auto=format&fit=crop&w=800&q=80" alt="Weighbridge">
+        <img src="https://images.unsplash.com/photo-1622630916733-26c5c8c0d30d?auto=format&fit=crop&w=800&q=80" alt="Industrial Vehicle">
+        <img src="https://images.unsplash.com/photo-1598454449568-3174bb3c4729?auto=format&fit=crop&w=800&q=80" alt="Digital Printout">
+        <img src="https://images.unsplash.com/photo-1581092334554-898b8a6fdfd2?auto=format&fit=crop&w=800&q=80" alt="Control Room">
+        <img src="https://images.unsplash.com/photo-1607513741908-e65a60229958?auto=format&fit=crop&w=800&q=80" alt="Customer Waiting Area">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="Service Desk">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    var lat = 10.7905;
+    var lon = 78.7047;
+
+    var map = L.map('map').setView([lat, lon], 16);
+
+    // CartoDB Positron basemap (no authentication required)
+    var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+    var marker = L.marker([lat, lon]).addTo(map);
+    marker.bindPopup("Sun Weight Bridge, Trichy - Open 8 AM to 8 PM").openPopup();
+  </script>
+</body>
+</html>
